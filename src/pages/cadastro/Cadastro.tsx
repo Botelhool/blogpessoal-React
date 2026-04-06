@@ -1,8 +1,8 @@
-import { useEffect, useState, type ChangeEvent, type FormEvent } from "react";
+import { useEffect, useState, type ChangeEvent, type SyntheticEvent } from "react";
 import { useNavigate } from "react-router-dom";
+import { ClipLoader } from "react-spinners";
 import type Usuario from "../../models/Usuario";
 import { cadastrarUsuario } from "../../services/Service";
-import { ClipLoader } from "react-spinners";
 
 function Cadastro() {
 
@@ -46,7 +46,8 @@ function Cadastro() {
   }
 
   // Função para enviar os dados para o Backend (Submit)
-  async function cadastrarNovoUsuario(e: FormEvent<HTMLFormElement>){
+  // Trocar o FormEvent pelo SyntheticEvent
+  async function cadastrarNovoUsuario(e: SyntheticEvent<HTMLFormElement>){
     
     e.preventDefault();
 
