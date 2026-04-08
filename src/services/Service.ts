@@ -20,3 +20,26 @@ export const login = async(url: string, dados: Object, setDados:Function) => {
     setDados(resposta);
 }
 
+//função para consultar com o token
+export const buscar = async(url: string, setDados:Function, header : Object) => {
+    const resposta = await api.post(url,header)
+    setDados(resposta.data);
+}
+
+//Função para Cadastrar com Token 
+export const cadastrar = async(url: string, dados: Object,setDados:Function, header : Object) => {
+    const resposta = await api.post(url,header,dados)
+    setDados(resposta.data);
+}
+
+//Função para atualizar token
+export const atualizar = async(url: string, dados: Object,setDados:Function, header : Object) => {
+    const resposta = await api.post(url,header,dados)
+    setDados(resposta.data);
+}
+
+//Função para deletar token 
+export const deletar = async(url: string,  header : Object) => {
+    const resposta = await api.post(url,header)
+    await api.delete(url,header);
+}
