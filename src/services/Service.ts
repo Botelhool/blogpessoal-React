@@ -40,6 +40,5 @@ export const atualizar = async(url: string, dados: Object,setDados:Function, hea
 
 //Função para deletar token 
 export const deletar = async(url: string,  header : Object) => {
-    const resposta = await api.post(url,header)
-    await api.delete(url,header);
+   await api.delete(url,header);
 }
