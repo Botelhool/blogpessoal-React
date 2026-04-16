@@ -14,15 +14,15 @@ function ListaPostagens() {
 
 	const [postagens, setPostagens] = useState<Postagem[]>([])
 
-	const { usuario, handleLogout, isLogout } = useContext(AuthContext)
+	const { usuario, handleLogout,isLogout } = useContext(AuthContext)
 	const token = usuario.token
 
 	useEffect(() => {
 		if (token === '') {
 			
-			if(!isLogout){
+			if(!isLogout)
 				ToastAlerta('Você precisa estar logado!', "info")
-			}
+			
 			
 			navigate('/')
 		}
@@ -40,9 +40,12 @@ function ListaPostagens() {
 				headers: { Authorization: token },
 			})
 		} catch (error: any) {
+			
 			if (error.toString().includes('401')) {
 				handleLogout()
+				console.log()
 			}
+			console.log()
 		} finally {
 			setIsLoading(false)
 		}

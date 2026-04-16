@@ -17,24 +17,24 @@ export const cadastrarUsuario = async(url: string, dados: Object, setDados:Funct
 //função para authenticar Usuário
 export const login = async(url: string, dados: Object, setDados:Function) => {
     const resposta = await api.post(url,dados)
-    setDados(resposta);
+    setDados(resposta.data);
 }
 
 //função para consultar com o token
-export const buscar = async(url: string, setDados:Function, header : Object) => {
-    const resposta = await api.post(url,header)
+export const buscar = async(url: string, setDados:Function, header:Object) => {
+    const resposta = await api.get(url,header)
     setDados(resposta.data);
 }
 
 //Função para Cadastrar com Token 
 export const cadastrar = async(url: string, dados: Object,setDados:Function, header : Object) => {
-    const resposta = await api.post(url,header,dados)
+    const resposta = await api.post(url,dados,header)
     setDados(resposta.data);
 }
 
 //Função para atualizar token
 export const atualizar = async(url: string, dados: Object,setDados:Function, header : Object) => {
-    const resposta = await api.post(url,header,dados)
+    const resposta = await api.put(url,dados,header)
     setDados(resposta.data);
 }
 
